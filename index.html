@@ -1,160 +1,309 @@
+
 <!DOCTYPE html>
-<html>
-    <title>Filipe Jessé</title>
-    <meta charset="UTF-8">
+<!--[if lt IE 10]>    <html class="no-js ls-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Filipe Jessé">
+    <meta name="Author" content="Filipe Jessé">
 
-    <link rel="shortcut icon" href="imagens/icon1.png" />
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="scripts.js"></script>
+    <link rel='stylesheet' type='text/css' href='https://d33wubrfki0l68.cloudfront.net/css/2bcde5b33a7474356291eb55a34f29443ef7c70e/app.css'/>
 
-    <style>
-        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif};
-    </style>
-
-    <body class="w3-light-grey">
-        <div id="loading" style="display: block; max-height: 1400px; max-width:1400px;" class="w3-content w3-center w3-light-grey">
-            <img src="http://media.giphy.com/media/FwviSlrsfa4aA/giphy.gif" style="width:300px; height:300px;" />
+    <title>Filipe Jessé</title>
+</head>
+<body id="top">
+    <section class="intro">
+        <div class="intro-overlay"></div>
+        <div class="intro-content">
+            <h3 class="intro-subtitle">Hello, World.</h3>
+            <h1 class="intro-title title">Filipe Jessé</h1>
+            <p class="intro-position">
+                <span>Student, hobbyist, developer</span>
+            </p>
+            <button id="learn-more" role="button">
+                Sobre
+                <i class="fas fa-angle-down"></i>
+            </button>
+            <div class="is-flex social-connect">
+                <a href="https://www.linkedin.com/in/filipe-jesse" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/_flipjazz" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/filipejesse" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:filipejesse5@gmail.com" target="_blank">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
         </div>
-        <!-- Conteúdo da Pagina -->
-        <div class="w3-content w3-margin-top" id="conteudo" style="max-width:1400px; display: none">
+    </section>
 
-            <!-- Principal -->
-            <div class="w3-row-padding">
-
-                <!-- Coluna Esquerda -->
-                <div class="w3-third">
-                    <!-- Apresentação -->
-                    <div class="w3-white w3-text-grey w3-card-4">
-                        <div class="w3-display-container">
-                            <img src="imagens/jesse.jpg" style="width:100%" alt="Avatar">
-                            <div class="w3-display-bottomleft w3-container w3-text-teal">
-                                <h2>Filipe Jessé</h2>
-                            </div>
-                        </div>
-                        <div class="w3-container">
-                            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Programador, Desenvolvedor, Técnico em Informática</p>
-                            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Juiz de Fora, MG</p>
-                            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>jesse@unamecorp.com.br</p>
-                            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>(32) 98822-9268</p>
-                            <p><i class="fa fa-whatsapp fa-fw w3-margin-right w3-large w3-text-teal"></i>(32) 98486-9454</p>
-                            <hr>
-                            <!-- Habilidades -->
-                            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Capacitações</b></p>
-                            <p>Web Designer</p>
-                            <div class="w3-light-grey w3-round-xlarge w3-small">
-                                <div class="w3-container w3-center w3-round-xlarge w3-teal" id="wd" style="width: 0%" >85%</div>
-                            </div>
-                            <p>PHP</p>
-                            <div class="w3-light-grey w3-round-xlarge w3-small">
-                                <div class="w3-container w3-center w3-round-xlarge w3-teal" id="wd1" style="width:0%"> 80%</div>
-                            </div>
-                            <p>Python</p>
-                            <div class="w3-light-grey w3-round-xlarge w3-small">
-                                <div class="w3-container w3-center w3-round-xlarge w3-teal" id="wd2" style="width:0%">75%</div>
-                            </div>
-                            <p>C | C#</p>
-                            <div class="w3-light-grey w3-round-xlarge w3-small">
-                                <div class="w3-container w3-center w3-round-xlarge w3-teal" id="wd3" style="width:0%">50%</div>
-                            </div>
-                            <br>
-                            <!-- Idiomas -->
-                           <!-- <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Idiomas</b></p>
-                            <p>Português</p>
-                            <div class="w3-light-grey w3-round-xlarge">
-                                <div class="w3-round-xlarge w3-teal" id="wd4" style="height:24px;width: 0%"></div>
-                            </div>
-                            <p>Inglês</p>
-                            <div class="w3-light-grey w3-round-xlarge">
-                                <div class="w3-round-xlarge w3-teal" id="wd5" style="height:24px;width: 0%"></div>
-                            </div>
-                            <p>Espanhol</p>
-                            <div class="w3-light-grey w3-round-xlarge">
-                                <div class="w3-round-xlarge w3-teal"  id="wd6" style="height:24px;width: 0%"></div>
-                            </div> -->
-        
-                            <br>
-                        </div>
-                    </div><br>
-
-                    <!-- Fim da Coluna Esquerda -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="content has-text-centered">
+                <div class="header-intro">
+                    <h5>Sobre</h5>
+                    <h6>Um pouco de mim</h6>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-6 my-profile">
+                    <h5 class="title">Informações Pessoais</h5>
+                    <p></p>
+                    <br>
+                    <ul class="about-list">
+                        <li>
+                            <strong>Nome:</strong><br>
+                            <span>Filipe Jessé de Castro Arruda</span>
+                        </li>
+                        <li>
+                            <strong>Cidade Natal:</strong><br>
+                            <span>Juiz de Fora-MG, Brasil</span>
+                        </li>
+                        <li>
+                            <strong>Data de Nascimento:</strong><br>
+                            <span>14 de Agosto de 1998</span>
+                        </li>
+                        <li>
+                            <strong>Celular:</strong><br>
+                            <span>(32) 99128-3482</span>
+                        </li>
+                        <li>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:filipejesse5@gmail.com"><span>filipejesse5@gmail.com</span></a>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Coluna Direita -->
-                <div class="w3-twothird">
-                    <!-- Trabalhos -->
-                    <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Experiência</h2>
-                        <div class="w3-container">
-                            <h5 class="w3-opacity"><b>CEO e Desenvolvedor / <a href="http://www.unamecorp.com.br">Uname Corporation</a></b></h5>
-                            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Dez 2016 - <span class="w3-tag w3-teal w3-round">Atualmente</span></h6>
-                            <p>Equipe de desenvolvimento OpenSource e soluções em T.I. Uname Corporation - "O Futuro não pode ser nomeado".</p><br>
-                            <hr>
-                        </div>
-                        <div class="w3-container">
-                            <h5 class="w3-opacity"><b>Desenvolvedor de Jogos e Modelagem Virtual 3D / <a href="http://www.jf.ifsudestemg.edu.br/">IF Sudeste MG</a></b></h5>
-                            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - Mar 2017</h6>
-                            <p>Desenvolvimento de uma realidade virtual 3D do IF Sudeste MG - Campus Juiz de Fora como projeto de pesquisa com apoio da FAPEMIG e do IF sudeste MG.</p>
-                            <hr>
-                        </div>
-                        <div class="w3-container">
-                            <h5 class="w3-opacity"><b>Técnico em Informática / <a href="http://www.tecnoserver.com.br/">Tecnoserver Informática</a></b></h5>
-                            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013</h6>
-                            <p>Técnico em Manutenção de software e hardware de computadores.</p> 
-                        </div>
-                    </div>
-                    
-                    <!-- Escolaridade -->
-                    <div class="w3-container w3-card-2 w3-white">
-                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Formação</h2>
-                        <div class="w3-container">
-                            <h5 class="w3-opacity"><b>Instituto Federal do Sudeste de Minas Gerais - Campus Juiz de Fora</b></h5>
-                            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2017 - <span class="w3-tag w3-teal w3-round">Atualmente</span></h6>
-                            <p>Bacharel em Sistemas de Informação</p>
-                            <hr>
-                        </div>
-                        <div class="w3-container">
-                            <h5 class="w3-opacity"><b>Instituto Federal do Sudeste de Minas Gerais - Campus Juiz de Fora</b></h5>
-                            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013-2016</h6>
-                            <p>Técnico em Informática</p>
-                            <hr>
-                        </div>
-                        <div class="w3-container">
-                            <h5 class="w3-opacity"><b>Instituto Federal do Sudeste de Minas Gerais - Campus Juiz de Fora</b></h5>
-                            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2016</h6>
-                            <p>Ensino Médio</p>
-                            <hr>
-                        </div>
-                        <div class="w3-container">
-                            <h5 class="w3-opacity"><b>Escola Estadual Terezinha Pereira</b></h5>
-                            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2009 - 2012</h6>
-                            <p>Ensino Fundamental</p><br>
-                        </div>
-                    </div>
-                  
-
-                    <!-- Final da coluna Direita -->
+                <div class="column is-6 my-skills">
+                    <h5 class="title">Capacitações</h5>
+                    <br>
+                    <ul class="skills-list">
+                        <li>
+                            <strong class="is-uppercase">HTML5 / CSS3</strong>
+                            <progress class="progress is-small" value="85" max="100">85</progress>
+                            <strong>85%</strong>
+                        </li>
+                        <li>
+                            <strong class="is-uppercase">JavaScript</strong>
+                            <progress class="progress is-small" value="80" max="100">85</progress>
+                            <strong>80%</strong>
+                        </li>
+                        <li>
+                            <strong class="is-uppercase">C</strong>
+                            <progress class="progress is-small" value="75" max="100">75</progress>
+                            <strong>75%</strong>
+                        </li>
+                        <li>
+                            <strong class="is-uppercase">PHP</strong>
+                            <progress class="progress is-small" value="75" max="100">75</progress>
+                            <strong>75%</strong>
+                        </li>
+                        <li>
+                            <strong class="is-uppercase">Java EE</strong>
+                            <progress class="progress is-small" value="70" max="100">70</progress>
+                            <strong>70%</strong>
+                        </li>
+                        <li>
+                            <strong class="is-uppercase">Python</strong>
+                            <progress class="progress is-small" value="65" max="100">65</progress>
+                            <strong>65%</strong>
+                        </li>
+                        <li>
+                            <strong class="is-uppercase">React</strong>
+                            <progress class="progress is-small" value="60" max="100">60</progress>
+                            <strong>60%</strong>
+                        </li>
+                        <li>
+                            <strong class="is-uppercase">C#</strong>
+                            <progress class="progress is-small" value="45" max="100">45</progress>
+                            <strong>45%</strong>
+                        </li>
+                    </ul>
                 </div>
-                <br><br>
-
-                <!-- Final da Pagina Principal -->
             </div>
 
-            <!-- Final da Pagina de Conteúdo -->
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="content tools-list">
+                        <h5 class="title">Ferramentas de Desenvolvimento:</h5>
+                        <p>IntelliJ, Visual Studio, VS Code, Bootstrap, Bulma, CodeIgniter, Git</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Rodapé -->
-        <footer class="w3-container w3-teal w3-center w3-margin-bottom">
-            <p>Encontre-me nas redes sociais.</p>
-            <a href="https://twitter.com/_flipjazz" class="w3-hover-text-white"><i class="fa fa-twitter w3-hover-text-blue w3-large"></i></a>
-            <a href="https://www.facebook.com/filipe.jesse" class="w3-hover-text-white"><i class="fa fa-facebook-official w3-hover-text-indigo w3-large"></i></a>
-            <a href="https://www.instagram.com/filipejesse/" class="w3-hover-text-white"><i class="fa fa-instagram w3-hover-text-purple w3-large"></i></a>
-            <a href="https://www.linkedin.com/in/filipe-jesse" class="w3-hover-text-white"><i class="fa fa-linkedin w3-hover-text-indigo w3-large"></i></a>
-            <a href="https://github.com/filipejesse" class="w3-hover-text-white"><i class="fa fa-github w3-hover-text-black w3-large"></i></a>
-            <p>Filipe Jessé | Mr. Zero</p>
-        </footer>
-        <!-- Fim do Rodapé -->
-    </body>
+    </section>
+
+    <section class="section hero is-light" id="resume">
+        <div class="content has-text-centered">
+            <div class="header-intro">
+                <h5>Resumão</h5>
+                <h6>Minhas Experiências</h6>
+            </div>
+        </div>
+        <div class="timeline is-centered">
+            <div class="timeline-item item-1">
+                <div class="timeline-marker green"></div>
+                <div class="timeline-content">
+                    <p class="heading">Mar 2019 - Atualmente</p>
+                    <p>Estagiário na <a href="https://www.thomsonreuters.com/en.html" target="_blank">Thomson Reuters</a></p>
+                </div>
+            </div>
+
+            <div class="timeline-item item-2">
+                <div class="timeline-marker green"></div>
+                <div class="timeline-content">
+                    <p class="heading">Mai 2019 - Atualmente</p>
+                    <p>Monitor em Modelagem de Sistemas no <a href="https://jf.ifsudestemg.edu.br" target="_blank">IF Sudeste MG</a></p>
+                </div>
+            </div>
+
+            <div class="timeline-item item-3">
+                <div class="timeline-marker green"></div>
+                <div class="timeline-content">
+                    <p class="heading">Mar 2017 - Atualmente</p>
+                    <p>Cursando Bacharelado em Sistemas de Informação no <a href="https://jf.ifsudestemg.edu.br" target="_blank">IF Sudeste MG</a></p>
+                </div>
+            </div>
+
+            <div class="timeline-item item-4">
+                <div class="timeline-marker red"></div>
+                <div class="timeline-content">
+                    <p class="heading">Ago 2018 - Jan 2019</p>
+                    <p>Estágiário em TI no <a href="https://jf.ifsudestemg.edu.br" target="_blank">IF Sudeste MG</a></p>
+                </div>
+            </div>
+
+            <div class="timeline-item item-5">
+                <div class="timeline-marker red"></div>
+                <div class="timeline-content">
+                    <p class="heading">Mar 2013 - Dez 2016</p>
+                    <p>Monitor em Desenvolvimento Web no <a href="https://jf.ifsudestemg.edu.br" target="_blank">IF Sudeste MG</a></p>
+                </div>
+            </div>
+
+            <div class="timeline-item item-6">
+                <div class="timeline-marker red"></div>
+                <div class="timeline-content">
+                    <p class="heading">Dez 2016 - Dez 2018</p>
+                    <p>CEO e Desenvolvedor da Iniciativa Open Source <a>Uname Corporation</a></p>
+                </div>
+            </div>
+
+            <div class="timeline-item item-7">
+                <div class="timeline-marker red"></div>
+                <div class="timeline-content">
+                    <p class="heading">Abr 2012 - January 2013</p>
+                    <p>Curso Técnico em Informática integrado ao Ensino Médio no <a href="https://jf.ifsudestemg.edu.br" target="_blank">IF Sudeste MG</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section hero portfolio">
+        <div class="content has-text-centered">
+            <div class="header-intro">
+                <h5>Trabalhos Recentes</h5>
+                <h6>Veja alguns de meus trabalhos mais recentes</h6>
+            </div>
+            <div class="container">
+                <div class="portfolio-grid">
+                    <div class="columns is-multiline is-mobile is-centered">
+                        <div class="column is-12-mobile is-half-tablet is-one-third-desktop">
+                            <div class="portfolio-item-3">
+                                <figure class="image is-3by2">
+                                    <img class="portfolio-thumb" src="./imagens/CodeFootM.png" alt="Image of GitHub logo">
+                                    <div class="overlay">
+                                        <div class="content">
+                                            <p class="text">Equipe CodeFootmen.</p>
+                                            <a class="button is-rounded view-website" href="https://github.com/codefootmen" target="_blank">Ver Projetos</a>
+                                        </div>
+                                    </div>
+                                </figure>   
+                            </div>
+                        </div>
+                        <div class="column is-12-mobile is-half-tablet is-one-third-desktop">
+                            <div class="portfolio-item-3">
+                                <figure class="image is-3by2">
+                                    <img class="portfolio-thumb" src="./imagens/github.png" alt="Image of GitHub logo">
+                                    <div class="overlay">
+                                        <div class="content">
+                                            <p class="text">Projetos Pessoais.</p>
+                                            <a class="button is-rounded view-website" href="https://github.com/filipejesse" target="_blank">Ver Projetos</a>
+                                        </div>
+                                    </div>
+                                </figure>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section hero is-light testimonials">
+        <div class="content has-text-centered">
+            <div class="header-intro">
+                <h5>Who Am I?</h5>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-two-thirds">
+                    <div class="testimonials-carousel">
+                        <div class="testimonial-block">
+                            <img class="avatar" src="./imagens/avatar.jpg" alt="">
+                            <p class="reference">
+                                Estudante e apaixonado por programação, músico, nerd, apoiador do movimento open source e no tempo livre passeio com minha cachorra :)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="section hero is-dark has-text-centered" role="contentInfo" itemscope="itemscope">
+        <div class="container is-narrow">
+            <div class="social">
+                <p class="field">
+                    <a class="button is-medium is-rounded" href="https://twitter.com/_flipjazz" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </p>
+                <p class="field">
+                    <a class="button is-medium is-rounded" href="https://www.linkedin.com/in/filipe-jesse" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </p>
+                <p class="field">
+                    <a class="button is-medium is-rounded" href="https://github.com/filipejesse" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </p>
+                <p class="field">
+                    <a class="button is-medium is-rounded" href="mailto:filipejesse5@gmail.com">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </p>
+            </div>
+
+            <div class="copyright">
+                <p>Filipe Jessé | <span id="year"></span></p>
+            </div>
+
+            <a href="https://bulma.io"><img src="https://bulma.io/images/made-with-bulma--white.png" alt="Made with Bulma" width="163" height="31"></a>
+
+            <div id="scroll-top">
+                <a class="scroll" title="Scroll Back To Top" href="#top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src='https://d33wubrfki0l68.cloudfront.net/js/96bd6af9adb57d598ddcd3040b9f2d6ac02aac7c/app.js'></script>
+</body>
 </html>
