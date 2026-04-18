@@ -98,17 +98,62 @@
     .hero-grid {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(0,255,135,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,135,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(0,255,135,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,135,0.03) 1px, transparent 1px);
       background-size: 56px 56px;
       mask-image: radial-gradient(ellipse 80% 70% at 60% 50%, black 10%, transparent 80%);
+      animation: gridDrift 14s linear infinite;
+    }
+    @keyframes gridDrift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 56px 56px; }
     }
 
     .hero-glow {
       position: absolute; top: 5%; right: -8%;
       width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,255,135,0.055) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(0,255,135,0.07) 0%, transparent 65%);
       filter: blur(48px); pointer-events: none;
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute; bottom: -10%; left: -6%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.045) 0%, transparent 65%);
+      filter: blur(56px); pointer-events: none;
+      animation: glowPulse 9s ease-in-out infinite reverse;
+    }
+    @keyframes glowPulse {
+      0%,100% { opacity: 0.7; transform: scale(1); }
+      50%     { opacity: 1;   transform: scale(1.1); }
+    }
+
+    /* floating code fragments */
+    .hero-float {
+      position: absolute; font-family: var(--fm);
+      color: rgba(0,255,135,0.12); font-size: 0.6875rem; letter-spacing: 0.05em;
+      pointer-events: none; white-space: nowrap;
+      animation: floatUp 18s linear infinite;
+    }
+    .hero-float:nth-child(1) { right: 12%; top: 80%; animation-delay: 0s;   animation-duration: 20s; }
+    .hero-float:nth-child(2) { right: 28%; top: 90%; animation-delay: -6s;  animation-duration: 17s; font-size: 0.5625rem; opacity: 0.7; }
+    .hero-float:nth-child(3) { right: 6%;  top: 95%; animation-delay: -11s; animation-duration: 22s; }
+    .hero-float:nth-child(4) { right: 42%; top: 85%; animation-delay: -3s;  animation-duration: 15s; font-size: 0.5rem; opacity: 0.6; }
+    @keyframes floatUp {
+      0%   { transform: translateY(0)    opacity: 0; }
+      5%   { opacity: 1; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    /* entrance animations */
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroSlide {
+      from { opacity: 0; transform: translateY(40px) skewY(1.5deg); }
+      to   { opacity: 1; transform: translateY(0) skewY(0); }
     }
 
     .hero-inner {
@@ -119,6 +164,7 @@
       display: inline-flex; align-items: center; gap: 10px;
       font-family: var(--fm); font-size: 0.6875rem; color: var(--accent);
       letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px;
+      opacity: 0; animation: heroIn 0.7s ease forwards; animation-delay: 0.1s;
     }
     .badge-dot {
       width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
@@ -126,7 +172,7 @@
     }
     @keyframes blink {
       0%,100% { opacity: 1; box-shadow: 0 0 0 0 var(--acc-glow); }
-      50% { opacity: 0.4; box-shadow: 0 0 0 6px transparent; }
+      50%     { opacity: 0.4; box-shadow: 0 0 0 8px transparent; }
     }
 
     .hero-name {
@@ -136,6 +182,7 @@
       letter-spacing: -0.03em;
       color: var(--text);
       margin-bottom: 20px;
+      opacity: 0; animation: heroSlide 0.9s cubic-bezier(0.16,1,0.3,1) forwards; animation-delay: 0.28s;
     }
     .hero-name .hl { color: var(--accent); }
 
@@ -146,10 +193,12 @@
       line-height: 1.55;
       margin-bottom: 52px;
       font-weight: 400;
+      opacity: 0; animation: heroIn 0.8s ease forwards; animation-delay: 0.55s;
     }
 
     .hero-actions {
       display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+      opacity: 0; animation: heroIn 0.8s ease forwards; animation-delay: 0.78s;
     }
 
     .btn-solid {
@@ -398,6 +447,78 @@
     }
     .brag-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.45; }
 
+    /* ─── ARRUDA TECH CARD ────────────────────── */
+    .at-card {
+      margin-top: 2px;
+      position: relative; overflow: hidden;
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 4px;
+    }
+    .at-card-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(130deg, rgba(245,158,11,0.06) 0%, rgba(245,158,11,0.02) 50%, rgba(7,8,10,0) 100%);
+      pointer-events: none;
+    }
+    .at-card-bg::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--amber) 0%, rgba(245,158,11,0.3) 60%, transparent 100%);
+    }
+    .at-card-inner {
+      position: relative;
+      display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center;
+      padding: 52px 48px;
+    }
+    .at-eyebrow {
+      font-family: var(--fm); font-size: 0.625rem; color: var(--amber);
+      text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 14px;
+    }
+    .at-title {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 800; letter-spacing: -0.03em; color: var(--text);
+      line-height: 1; margin-bottom: 18px;
+    }
+    .at-dot { color: var(--amber); }
+    .at-desc {
+      font-size: 0.9375rem; color: var(--muted); line-height: 1.65;
+      max-width: 480px; margin-bottom: 24px;
+    }
+    .at-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .at-tag {
+      padding: 4px 12px;
+      border: 1px solid rgba(245,158,11,0.2);
+      background: rgba(245,158,11,0.05);
+      border-radius: 2px; font-family: var(--fm);
+      font-size: 0.6875rem; color: rgba(245,158,11,0.7);
+      letter-spacing: 0.04em;
+    }
+    .at-right {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 32px; flex-shrink: 0;
+    }
+    .at-stat-row { display: flex; gap: 40px; }
+    .at-stat { text-align: right; }
+    .at-stat-num {
+      font-family: var(--fm); font-size: 2.75rem; font-weight: 700;
+      color: var(--amber); line-height: 1; margin-bottom: 6px;
+    }
+    .at-stat-lbl { font-size: 0.75rem; color: var(--muted); }
+    .at-cta {
+      display: inline-flex; align-items: center;
+      padding: 14px 32px;
+      background: var(--amber); color: #07080a;
+      font-weight: 700; font-size: 0.875rem; border-radius: 3px;
+      letter-spacing: 0.02em; white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .at-cta:hover { background: #fbbf24; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.25); }
+
+    @media (max-width: 860px) {
+      .at-card-inner { grid-template-columns: 1fr; gap: 32px; padding: 36px 28px; }
+      .at-right { align-items: flex-start; }
+      .at-stat-row { gap: 28px; }
+      .at-stat { text-align: left; }
+    }
+
     /* ─── EDUCATION ───────────────────────────── */
     #education { background: var(--bg); }
 
@@ -504,6 +625,11 @@
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-float">tx.process(150_rps)</div>
+  <div class="hero-float">await agent.run()</div>
+  <div class="hero-float">custody += 1_000_000_000</div>
+  <div class="hero-float">deploy → prod</div>
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="badge-dot"></span>
@@ -863,13 +989,37 @@
         <div class="brag-desc">technical proposals authored for clients</div>
       </div>
     </div>
-    <div class="at-callout fi" style="margin-top:1px;background:var(--bg-3);border:1px solid var(--border);border-top:none;padding:40px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
-      <div>
-        <div style="font-family:var(--fm);font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:8px;">Tech Consultancy</div>
-        <div style="font-size:1.25rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;">Arruda.Tech</div>
-        <div style="font-size:0.875rem;color:var(--muted);margin-top:6px;max-width:480px;">Custom software proposals for clients across health, fintech, real estate, logistics and more — built and managed through a proprietary platform.</div>
+    <div class="at-card fi">
+      <div class="at-card-bg"></div>
+      <div class="at-card-inner">
+        <div class="at-left">
+          <div class="at-eyebrow">Tech Consultancy</div>
+          <h3 class="at-title">Arruda<span class="at-dot">.Tech</span></h3>
+          <p class="at-desc">A proprietary platform to scope, price and deliver custom software for clients across health, fintech, real estate, logistics and more — from a first meeting to a signed proposal, in one place.</p>
+          <div class="at-tags">
+            <span class="at-tag">Health</span>
+            <span class="at-tag">Fintech</span>
+            <span class="at-tag">Real Estate</span>
+            <span class="at-tag">Logistics</span>
+            <span class="at-tag">Agribusiness</span>
+            <span class="at-tag">Music</span>
+            <span class="at-tag">+ more</span>
+          </div>
+        </div>
+        <div class="at-right">
+          <div class="at-stat-row">
+            <div class="at-stat">
+              <div class="at-stat-num">21</div>
+              <div class="at-stat-lbl">proposals delivered</div>
+            </div>
+            <div class="at-stat">
+              <div class="at-stat-num">7+</div>
+              <div class="at-stat-lbl">verticals served</div>
+            </div>
+          </div>
+          <a href="http://arrudatech.com/" target="_blank" class="at-cta">Visit Arruda.Tech &rarr;</a>
+        </div>
       </div>
-      <a href="http://arrudatech.com/" target="_blank" class="btn-ghost" style="white-space:nowrap;flex-shrink:0;">Visit Arruda.Tech &rarr;</a>
     </div>
   </div>
 </section>
