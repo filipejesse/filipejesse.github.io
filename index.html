@@ -97,34 +97,28 @@
 
     /* orbital rings background */
     .hero-orbits {
-      position: absolute;
-      top: 50%; right: -18%;
-      transform: translateY(-52%);
-      width: 860px; height: 860px;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
       pointer-events: none;
-      opacity: 0; animation: heroIn 1.4s ease forwards; animation-delay: 0.2s;
+      opacity: 0; animation: heroIn 1.6s ease forwards; animation-delay: 0.15s;
     }
-    .o1 { animation: spin 28s linear infinite; transform-origin: 430px 430px; }
-    .o2 { animation: spin 45s linear infinite reverse; transform-origin: 430px 430px; }
-    .o3 { animation: spin 70s linear infinite; transform-origin: 430px 430px; }
-    .o4 { animation: spin 18s linear infinite reverse; transform-origin: 430px 430px; }
     @keyframes spin {
       from { transform: rotate(0deg); }
       to   { transform: rotate(360deg); }
     }
-    .node-pulse { animation: nodePulse 3s ease-in-out infinite; }
+    .node-pulse   { animation: nodePulse 3s   ease-in-out infinite; }
     .node-pulse-2 { animation: nodePulse 4.5s ease-in-out infinite 1.5s; }
+    .node-pulse-3 { animation: nodePulse 5.5s ease-in-out infinite 0.8s; }
     @keyframes nodePulse {
-      0%,100% { opacity: 0.9; r: 3; }
-      50%     { opacity: 0.4; r: 2; }
+      0%,100% { opacity: 0.85; }
+      50%     { opacity: 0.25; }
     }
-    /* soft center glow behind rings */
+    /* soft ambient behind orbital origin */
     .hero-core-glow {
-      position: absolute; top: 50%; right: -18%;
-      transform: translateY(-52%) translateX(50%);
-      width: 320px; height: 320px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,255,135,0.06) 0%, transparent 70%);
-      filter: blur(40px); pointer-events: none;
+      position: absolute; top: -8%; right: -4%;
+      width: 480px; height: 480px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,135,0.07) 0%, transparent 70%);
+      filter: blur(56px); pointer-events: none;
     }
 
     /* entrance animations */
@@ -605,32 +599,62 @@
 <!-- ── HERO ─────────────────────────────────── -->
 <section id="hero">
   <div class="hero-core-glow"></div>
-  <svg class="hero-orbits" viewBox="0 0 860 860" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- ring 4 — innermost, amber, fast -->
-    <g class="o4">
-      <circle cx="430" cy="430" r="148" stroke="rgba(245,158,11,0.10)" stroke-width="1"/>
-      <circle cx="430" cy="282" r="3.5" fill="#f59e0b" opacity="0.7" class="node-pulse-2"/>
+  <!-- orbital origin: top-right corner ~(92%, -6%) of hero.
+       All rings centered at (0,0) inside a translated group.
+       SVG uses preserveAspectRatio=none to stretch to full hero. -->
+  <svg class="hero-orbits" viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMin slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="gcore" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="#00ff87" stop-opacity="0.15"/>
+        <stop offset="100%" stop-color="#00ff87" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- ambient glow at origin -->
+    <circle cx="1380" cy="-30" r="300" fill="url(#gcore)"/>
+
+    <!-- all rings: translate origin to (1380, -30), rotate children around (0,0) -->
+    <g transform="translate(1380,-30)">
+
+      <!-- ring A — r=290, amber, fast 16s -->
+      <g style="transform-origin:0 0; animation: spin 16s linear infinite reverse;">
+        <circle cx="0" cy="0" r="290" stroke="rgba(245,158,11,0.13)" stroke-width="1"/>
+        <circle cx="0" cy="-290" r="4" fill="#f59e0b" class="node-pulse-2"/>
+        <circle cx="290" cy="0"  r="2.5" fill="#f59e0b" opacity="0.35"/>
+      </g>
+
+      <!-- ring B — r=480, solid green, 26s -->
+      <g style="transform-origin:0 0; animation: spin 26s linear infinite;">
+        <circle cx="0" cy="0" r="480" stroke="rgba(0,255,135,0.11)" stroke-width="1"/>
+        <circle cx="0" cy="-480" r="4.5" fill="#00ff87" class="node-pulse"/>
+        <circle cx="-480" cy="0"  r="2.5" fill="#00ff87" opacity="0.3"/>
+      </g>
+
+      <!-- ring C — r=680, dashed green, 44s reverse -->
+      <g style="transform-origin:0 0; animation: spin 44s linear infinite reverse;">
+        <circle cx="0" cy="0" r="680" stroke="rgba(0,255,135,0.07)" stroke-width="1" stroke-dasharray="6 18"/>
+        <circle cx="0" cy="-680" r="3.5" fill="#00ff87" opacity="0.55" class="node-pulse-3"/>
+        <circle cx="680" cy="0"  r="2"   fill="#00ff87" opacity="0.25"/>
+      </g>
+
+      <!-- ring D — r=900, amber, ultra-slow 72s -->
+      <g style="transform-origin:0 0; animation: spin 72s linear infinite;">
+        <circle cx="0" cy="0" r="900" stroke="rgba(245,158,11,0.06)" stroke-width="1"/>
+        <circle cx="0" cy="-900" r="3" fill="#f59e0b" opacity="0.5" class="node-pulse-2"/>
+      </g>
+
+      <!-- ring E — r=1160, faint green, 100s -->
+      <g style="transform-origin:0 0; animation: spin 100s linear infinite reverse;">
+        <circle cx="0" cy="0" r="1160" stroke="rgba(0,255,135,0.04)" stroke-width="1" stroke-dasharray="2 24"/>
+        <circle cx="0" cy="-1160" r="2.5" fill="#00ff87" opacity="0.35" class="node-pulse"/>
+      </g>
+
+      <!-- crosshair at origin -->
+      <line x1="-14" y1="0" x2="14" y2="0" stroke="rgba(0,255,135,0.35)" stroke-width="1"/>
+      <line x1="0" y1="-14" x2="0" y2="14" stroke="rgba(0,255,135,0.35)" stroke-width="1"/>
+      <circle cx="0" cy="0" r="3.5" fill="#00ff87" opacity="0.6"/>
+      <circle cx="0" cy="0" r="10"  stroke="rgba(0,255,135,0.15)" stroke-width="1" fill="none"/>
     </g>
-    <!-- ring 1 — small, bright green -->
-    <g class="o1">
-      <circle cx="430" cy="430" r="220" stroke="rgba(0,255,135,0.13)" stroke-width="1"/>
-      <circle cx="430" cy="210" r="4" fill="#00ff87" opacity="0.9" class="node-pulse"/>
-      <circle cx="650" cy="430" r="2.5" fill="#00ff87" opacity="0.4"/>
-    </g>
-    <!-- ring 2 — medium, dim green, reverse -->
-    <g class="o2">
-      <circle cx="430" cy="430" r="320" stroke="rgba(0,255,135,0.07)" stroke-width="1" stroke-dasharray="4 12"/>
-      <circle cx="430" cy="110" r="3" fill="#00ff87" opacity="0.6" class="node-pulse-2"/>
-    </g>
-    <!-- ring 3 — large, amber accent, slow -->
-    <g class="o3">
-      <circle cx="430" cy="430" r="410" stroke="rgba(245,158,11,0.05)" stroke-width="1"/>
-      <circle cx="430" cy="20"  r="2.5" fill="#f59e0b" opacity="0.5" class="node-pulse"/>
-    </g>
-    <!-- crosshair at center -->
-    <line x1="418" y1="430" x2="442" y2="430" stroke="rgba(0,255,135,0.25)" stroke-width="1"/>
-    <line x1="430" y1="418" x2="430" y2="442" stroke="rgba(0,255,135,0.25)" stroke-width="1"/>
-    <circle cx="430" cy="430" r="3" fill="rgba(0,255,135,0.4)"/>
   </svg>
   <div class="hero-inner">
     <div class="hero-badge">
