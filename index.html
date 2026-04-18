@@ -95,55 +95,36 @@
       position: relative; overflow: hidden;
     }
 
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(0,255,135,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,135,0.03) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(ellipse 80% 70% at 60% 50%, black 10%, transparent 80%);
-      animation: gridDrift 14s linear infinite;
+    /* orbital rings background */
+    .hero-orbits {
+      position: absolute;
+      top: 50%; right: -18%;
+      transform: translateY(-52%);
+      width: 860px; height: 860px;
+      pointer-events: none;
+      opacity: 0; animation: heroIn 1.4s ease forwards; animation-delay: 0.2s;
     }
-    @keyframes gridDrift {
-      0%   { background-position: 0 0; }
-      100% { background-position: 56px 56px; }
+    .o1 { animation: spin 28s linear infinite; transform-origin: 430px 430px; }
+    .o2 { animation: spin 45s linear infinite reverse; transform-origin: 430px 430px; }
+    .o3 { animation: spin 70s linear infinite; transform-origin: 430px 430px; }
+    .o4 { animation: spin 18s linear infinite reverse; transform-origin: 430px 430px; }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
-
-    .hero-glow {
-      position: absolute; top: 5%; right: -8%;
-      width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,255,135,0.07) 0%, transparent 65%);
-      filter: blur(48px); pointer-events: none;
-      animation: glowPulse 6s ease-in-out infinite;
+    .node-pulse { animation: nodePulse 3s ease-in-out infinite; }
+    .node-pulse-2 { animation: nodePulse 4.5s ease-in-out infinite 1.5s; }
+    @keyframes nodePulse {
+      0%,100% { opacity: 0.9; r: 3; }
+      50%     { opacity: 0.4; r: 2; }
     }
-    .hero-glow-2 {
-      position: absolute; bottom: -10%; left: -6%;
-      width: 500px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,158,11,0.045) 0%, transparent 65%);
-      filter: blur(56px); pointer-events: none;
-      animation: glowPulse 9s ease-in-out infinite reverse;
-    }
-    @keyframes glowPulse {
-      0%,100% { opacity: 0.7; transform: scale(1); }
-      50%     { opacity: 1;   transform: scale(1.1); }
-    }
-
-    /* floating code fragments */
-    .hero-float {
-      position: absolute; font-family: var(--fm);
-      color: rgba(0,255,135,0.12); font-size: 0.6875rem; letter-spacing: 0.05em;
-      pointer-events: none; white-space: nowrap;
-      animation: floatUp 18s linear infinite;
-    }
-    .hero-float:nth-child(1) { right: 12%; top: 80%; animation-delay: 0s;   animation-duration: 20s; }
-    .hero-float:nth-child(2) { right: 28%; top: 90%; animation-delay: -6s;  animation-duration: 17s; font-size: 0.5625rem; opacity: 0.7; }
-    .hero-float:nth-child(3) { right: 6%;  top: 95%; animation-delay: -11s; animation-duration: 22s; }
-    .hero-float:nth-child(4) { right: 42%; top: 85%; animation-delay: -3s;  animation-duration: 15s; font-size: 0.5rem; opacity: 0.6; }
-    @keyframes floatUp {
-      0%   { transform: translateY(0)    opacity: 0; }
-      5%   { opacity: 1; }
-      90%  { opacity: 0.6; }
-      100% { transform: translateY(-120vh); opacity: 0; }
+    /* soft center glow behind rings */
+    .hero-core-glow {
+      position: absolute; top: 50%; right: -18%;
+      transform: translateY(-52%) translateX(50%);
+      width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,135,0.06) 0%, transparent 70%);
+      filter: blur(40px); pointer-events: none;
     }
 
     /* entrance animations */
@@ -606,7 +587,7 @@
 
 <!-- ── NAV ──────────────────────────────────── -->
 <nav id="nav">
-  <span class="nav-logo">FA_</span>
+  <a href="#hero" class="nav-logo">FA_</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Work</a></li>
@@ -623,13 +604,34 @@
 
 <!-- ── HERO ─────────────────────────────────── -->
 <section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow-2"></div>
-  <div class="hero-float">tx.process(150_rps)</div>
-  <div class="hero-float">await agent.run()</div>
-  <div class="hero-float">custody += 1_000_000_000</div>
-  <div class="hero-float">deploy → prod</div>
+  <div class="hero-core-glow"></div>
+  <svg class="hero-orbits" viewBox="0 0 860 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- ring 4 — innermost, amber, fast -->
+    <g class="o4">
+      <circle cx="430" cy="430" r="148" stroke="rgba(245,158,11,0.10)" stroke-width="1"/>
+      <circle cx="430" cy="282" r="3.5" fill="#f59e0b" opacity="0.7" class="node-pulse-2"/>
+    </g>
+    <!-- ring 1 — small, bright green -->
+    <g class="o1">
+      <circle cx="430" cy="430" r="220" stroke="rgba(0,255,135,0.13)" stroke-width="1"/>
+      <circle cx="430" cy="210" r="4" fill="#00ff87" opacity="0.9" class="node-pulse"/>
+      <circle cx="650" cy="430" r="2.5" fill="#00ff87" opacity="0.4"/>
+    </g>
+    <!-- ring 2 — medium, dim green, reverse -->
+    <g class="o2">
+      <circle cx="430" cy="430" r="320" stroke="rgba(0,255,135,0.07)" stroke-width="1" stroke-dasharray="4 12"/>
+      <circle cx="430" cy="110" r="3" fill="#00ff87" opacity="0.6" class="node-pulse-2"/>
+    </g>
+    <!-- ring 3 — large, amber accent, slow -->
+    <g class="o3">
+      <circle cx="430" cy="430" r="410" stroke="rgba(245,158,11,0.05)" stroke-width="1"/>
+      <circle cx="430" cy="20"  r="2.5" fill="#f59e0b" opacity="0.5" class="node-pulse"/>
+    </g>
+    <!-- crosshair at center -->
+    <line x1="418" y1="430" x2="442" y2="430" stroke="rgba(0,255,135,0.25)" stroke-width="1"/>
+    <line x1="430" y1="418" x2="430" y2="442" stroke="rgba(0,255,135,0.25)" stroke-width="1"/>
+    <circle cx="430" cy="430" r="3" fill="rgba(0,255,135,0.4)"/>
+  </svg>
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="badge-dot"></span>
