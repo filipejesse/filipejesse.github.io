@@ -575,6 +575,23 @@
       #contact { padding: 80px 24px; }
       footer { padding: 24px; }
     }
+
+    /* ─── LANG TOGGLE ─────────────────────────── */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 5px;
+      background: none; border: 1px solid var(--border); border-radius: 3px;
+      padding: 7px 12px; cursor: pointer;
+      font-family: var(--fm); font-size: 0.6875rem; letter-spacing: 0.08em;
+      transition: border-color 0.2s;
+    }
+    .lang-toggle:hover { border-color: rgba(255,255,255,0.2); }
+    .lt-en, .lt-pt { color: var(--dim); transition: color 0.2s; }
+    .lt-sep { color: var(--dim); }
+    .lang-toggle.active-en .lt-en { color: var(--accent); }
+    .lang-toggle.active-pt .lt-pt { color: var(--accent); }
+    @media (max-width: 860px) {
+      .lang-toggle { padding: 6px 9px; font-size: 0.625rem; }
+    }
   </style>
 </head>
 <body>
@@ -583,14 +600,19 @@
 <nav id="nav">
   <a href="#hero" class="nav-logo">FA_</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Work</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-i18n="nav.about">About</a></li>
+    <li><a href="#experience" data-i18n="nav.work">Work</a></li>
+    <li><a href="#impact" data-i18n="nav.impact">Impact</a></li>
+    <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+    <li><a href="#education" data-i18n="nav.education">Education</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <a href="mailto:filipejesse5@gmail.com" class="nav-cta">Get in touch</a>
+  <button class="lang-toggle active-en" id="langToggle" aria-label="Toggle language">
+    <span class="lt-en">EN</span>
+    <span class="lt-sep">/</span>
+    <span class="lt-pt">PT-BR</span>
+  </button>
+  <a href="mailto:filipejesse5@gmail.com" class="nav-cta" data-i18n="nav.cta">Get in touch</a>
   <div class="nav-burger" id="burger" aria-label="Menu">
     <span></span><span></span><span></span>
   </div>
@@ -659,58 +681,58 @@
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      Senior Engineer &amp; Tech Lead — Open to opportunities
+      <span data-i18n="hero.badge">Senior Engineer &amp; Tech Lead — Open to opportunities</span>
     </div>
     <h1 class="hero-name">
       Filipe<br>
       <span class="hl">Arruda</span>
     </h1>
-    <p class="hero-sub">
+    <p class="hero-sub" data-i18n="hero.sub">
       I build systems that move money, model intelligence,<br>
       and scale under pressure — from zero to production.
     </p>
     <div class="hero-actions">
       <a href="https://www.linkedin.com/in/filipe-jesse" target="_blank" class="btn-solid">LinkedIn</a>
       <a href="https://github.com/filipejesse" target="_blank" class="btn-ghost">GitHub</a>
-      <a href="mailto:filipejesse5@gmail.com" class="btn-ghost">Email me</a>
+      <a href="mailto:filipejesse5@gmail.com" class="btn-ghost" data-i18n="hero.email">Email me</a>
     </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-scroll" data-i18n="hero.scroll">Scroll</div>
 </section>
 
 <!-- ── STATS ────────────────────────────────── -->
 <section id="stats">
   <div class="stats-wrap">
-    <p class="stats-eyebrow">Career impact — measured</p>
+    <p class="stats-eyebrow" data-i18n="stats.eyebrow">Career impact — measured</p>
     <div class="stats-grid">
       <div class="stat-cell fi d1">
         <div class="stat-num gold"><span class="ctr" data-t="1" data-p="$" data-s="B+">$0B+</span></div>
-        <div class="stat-desc">in custody from a single batch migration</div>
+        <div class="stat-desc" data-i18n="stats.desc.1">in custody from a single batch migration</div>
         <div class="stat-src">BTG Pactual</div>
       </div>
       <div class="stat-cell fi d2">
         <div class="stat-num green"><span class="ctr" data-t="150" data-s=" req/s">0</span></div>
-        <div class="stat-desc">throughput — scaled from 16 req/s</div>
+        <div class="stat-desc" data-i18n="stats.desc.2">throughput — scaled from 16 req/s</div>
         <div class="stat-src">Transfero</div>
       </div>
       <div class="stat-cell fi d3">
         <div class="stat-num"><span class="ctr" data-t="90" data-s="%">0%</span></div>
-        <div class="stat-desc">operational cost reduction</div>
+        <div class="stat-desc" data-i18n="stats.desc.3">operational cost reduction</div>
         <div class="stat-src">Transfero</div>
       </div>
       <div class="stat-cell fi d4">
         <div class="stat-num green"><span class="ctr" data-t="8" data-s="×">0×</span></div>
-        <div class="stat-desc">processing efficiency via AI workflows</div>
+        <div class="stat-desc" data-i18n="stats.desc.4">processing efficiency via AI workflows</div>
         <div class="stat-src">Transfero</div>
       </div>
       <div class="stat-cell fi d5">
         <div class="stat-num gold"><span class="ctr" data-t="1000" data-s="+">0+</span></div>
-        <div class="stat-desc">volunteers connected during disaster crisis</div>
+        <div class="stat-desc" data-i18n="stats.desc.5">volunteers connected during disaster crisis</div>
         <div class="stat-src">Ajude.io</div>
       </div>
       <div class="stat-cell fi d6">
         <div class="stat-num"><span class="ctr" data-t="910" data-s=" hrs/mo">0</span></div>
-        <div class="stat-desc">ops hours saved across two KYC modules</div>
+        <div class="stat-desc" data-i18n="stats.desc.6">ops hours saved across two KYC modules</div>
         <div class="stat-src">BTG Pactual</div>
       </div>
     </div>
@@ -722,48 +744,48 @@
   <div class="wrap">
     <div class="sec-hdr fi">
       <span class="sec-n">01</span>
-      <h2>About</h2>
+      <h2 data-i18n="about.heading">About</h2>
     </div>
     <div class="about-grid">
       <div class="about-photo-wrap fi">
         <img src="./imagens/perfil.png" alt="Filipe Arruda">
       </div>
       <div class="about-body fi">
-        <p>
+        <p data-i18n="about.p1">
           Senior Software Engineer and Tech Lead with <strong>6+ years</strong> building mission-critical
           systems across fintech, banking, and AI-driven products. I specialize in
           <strong>high-volume payment architectures</strong>, agentic AI pipelines, and cloud-native
           backends on AWS and Azure.
         </p>
-        <p>
+        <p data-i18n="about.p2">
           I've led teams at <strong>BTG Pactual</strong> — Brazil's largest investment bank — at
           <strong>Transfero</strong> — a fintech operating at scale — and currently at <strong>Acxia Cloud</strong>,
           where I architect and deliver agentic AI systems end-to-end.
         </p>
-        <p>
+        <p data-i18n="about.p3">
           In February 2026, during the climate crisis in Juiz de Fora, I built
           <strong>Ajude.io</strong> — a real-time disaster response platform that connected over 1,000
           volunteers to active relief fronts. The platform gained national TV coverage.
         </p>
-        <p>
+        <p data-i18n="about.p4">
           I hold an <strong>Executive MBA from FGV</strong> in People &amp; Leadership and an
           <strong>MBA in Software Architecture</strong> from XP Education.
         </p>
         <div class="about-meta">
           <div class="about-meta-item">
-            <span class="am-label">Location</span>
+            <span class="am-label" data-i18n="about.meta.location">Location</span>
             <span class="am-val">Brazil · Remote</span>
           </div>
           <div class="about-meta-item">
-            <span class="am-label">Languages</span>
+            <span class="am-label" data-i18n="about.meta.languages">Languages</span>
             <span class="am-val">PT / EN</span>
           </div>
           <div class="about-meta-item">
-            <span class="am-label">Experience</span>
+            <span class="am-label" data-i18n="about.meta.experience">Experience</span>
             <span class="am-val">6+ years</span>
           </div>
           <div class="about-meta-item">
-            <span class="am-label">Focus</span>
+            <span class="am-label" data-i18n="about.meta.focus">Focus</span>
             <span class="am-val">Fintech · AI Systems</span>
           </div>
         </div>
@@ -777,7 +799,7 @@
   <div class="wrap">
     <div class="sec-hdr fi">
       <span class="sec-n">02</span>
-      <h2>Experience</h2>
+      <h2 data-i18n="exp.heading">Experience</h2>
     </div>
     <div class="exp-list">
 
@@ -785,16 +807,16 @@
         <div class="exp-meta">
           <div class="exp-co">Acxia Cloud</div>
           <div class="exp-period">Jan 2026 — Present</div>
-          <span class="exp-badge">Current</span>
+          <span class="exp-badge" data-i18n="exp.acxia.badge">Current</span>
         </div>
         <div>
-          <div class="exp-role">AI &amp; ML Engineer<br>Tech Lead</div>
+          <div class="exp-role" data-i18n="exp.acxia.role">AI &amp; ML Engineer<br>Tech Lead</div>
           <ul class="exp-bullets">
-            <li>Built <span class="hl">3 end-to-end agentic AI systems from scratch</span>: medical document analysis with OCR and scoring, AI email automation pipeline with analytics dashboard, and an intelligent voice gateway.</li>
-            <li>Standardized CI/CD via GitHub Actions across multiple repos — secret management, infrastructure bootstrap, smoke tests.</li>
-            <li>Refactored voice AI gateway with a multi-layer test suite, intent journey tracking, and silence timeout — transforming untested code into a fully observable system.</li>
-            <li>Eliminated a critical bottleneck by <span class="hl">replacing synchronous polling with async callbacks</span> in Amazon Connect integration.</li>
-            <li>Formal code reviews and technical mentorship driving collective quality standards.</li>
+            <li data-i18n="exp.acxia.b1">Built <span class="hl">3 end-to-end agentic AI systems from scratch</span>: medical document analysis with OCR and scoring, AI email automation pipeline with analytics dashboard, and an intelligent voice gateway.</li>
+            <li data-i18n="exp.acxia.b2">Standardized CI/CD via GitHub Actions across multiple repos — secret management, infrastructure bootstrap, smoke tests.</li>
+            <li data-i18n="exp.acxia.b3">Refactored voice AI gateway with a multi-layer test suite, intent journey tracking, and silence timeout — transforming untested code into a fully observable system.</li>
+            <li data-i18n="exp.acxia.b4">Eliminated a critical bottleneck by <span class="hl">replacing synchronous polling with async callbacks</span> in Amazon Connect integration.</li>
+            <li data-i18n="exp.acxia.b5">Formal code reviews and technical mentorship driving collective quality standards.</li>
           </ul>
         </div>
       </div>
@@ -805,12 +827,12 @@
           <div class="exp-period">Apr 2024 — Dec 2025</div>
         </div>
         <div>
-          <div class="exp-role">Senior Software Engineer<br>Tech Lead</div>
+          <div class="exp-role" data-i18n="exp.transfero.role">Senior Software Engineer<br>Tech Lead</div>
           <ul class="exp-bullets">
-            <li>Led core payments team processing <span class="hl">thousands of transactions daily</span> — eliminated recurring weekly outages, achieving zero incidents.</li>
-            <li>Architected a new payment system from the ground up: <span class="hl">16 → 150 req/s throughput, 90% cost reduction</span> through in-house money processing.</li>
-            <li>Championed AI-driven engineering (GitHub Copilot, LLMs), contributing to an <span class="hl">8× increase in processing efficiency</span>.</li>
-            <li>High-ownership role in ambiguity-heavy fintech environment — drove complex systems from concept to production with speed and autonomy.</li>
+            <li data-i18n="exp.transfero.b1">Led core payments team processing <span class="hl">thousands of transactions daily</span> — eliminated recurring weekly outages, achieving zero incidents.</li>
+            <li data-i18n="exp.transfero.b2">Architected a new payment system from the ground up: <span class="hl">16 → 150 req/s throughput, 90% cost reduction</span> through in-house money processing.</li>
+            <li data-i18n="exp.transfero.b3">Championed AI-driven engineering (GitHub Copilot, LLMs), contributing to an <span class="hl">8× increase in processing efficiency</span>.</li>
+            <li data-i18n="exp.transfero.b4">High-ownership role in ambiguity-heavy fintech environment — drove complex systems from concept to production with speed and autonomy.</li>
           </ul>
         </div>
       </div>
@@ -821,13 +843,13 @@
           <div class="exp-period">Mar 2021 — Mar 2024</div>
         </div>
         <div>
-          <div class="exp-role">Senior Software Engineer<br>Tech Lead</div>
+          <div class="exp-role" data-i18n="exp.btg.role">Senior Software Engineer<br>Tech Lead</div>
           <ul class="exp-bullets">
-            <li>Delivered BTG's <span class="hl">international account opening platform</span> (primary OKR) in under 6 months, leading a team of 10 engineers.</li>
-            <li>Batch payroll migration module → <span class="hl">USD 1 billion+ in custody</span>.</li>
-            <li>KYC compliance module: <span class="hl">265 hrs/month saved (~$1,968/mo)</span> in operational costs.</li>
-            <li>Hierarchical relations module: <span class="hl">645 hrs/month saved (~$6,093/mo)</span>.</li>
-            <li>Enabled co-branded cards + crypto broker accounts: <span class="hl">~$978K assets, ~$99K revenue in month 1</span>.</li>
+            <li data-i18n="exp.btg.b1">Delivered BTG's <span class="hl">international account opening platform</span> (primary OKR) in under 6 months, leading a team of 10 engineers.</li>
+            <li data-i18n="exp.btg.b2">Batch payroll migration module → <span class="hl">USD 1 billion+ in custody</span>.</li>
+            <li data-i18n="exp.btg.b3">KYC compliance module: <span class="hl">265 hrs/month saved (~$1,968/mo)</span> in operational costs.</li>
+            <li data-i18n="exp.btg.b4">Hierarchical relations module: <span class="hl">645 hrs/month saved (~$6,093/mo)</span>.</li>
+            <li data-i18n="exp.btg.b5">Enabled co-branded cards + crypto broker accounts: <span class="hl">~$978K assets, ~$99K revenue in month 1</span>.</li>
           </ul>
         </div>
       </div>
@@ -838,11 +860,11 @@
           <div class="exp-period">Mar 2019 — Mar 2021</div>
         </div>
         <div>
-          <div class="exp-role">Software Engineer<br><span style="font-size:0.875rem; color:var(--muted); font-weight:400;">(+ Intern 2019–2020)</span></div>
+          <div class="exp-role" data-i18n="exp.tr.role">Software Engineer<br><span style="font-size:0.875rem; color:var(--muted); font-weight:400;">(+ Intern 2019–2020)</span></div>
           <ul class="exp-bullets">
-            <li>Developed and maintained <span class="hl">100+ web crawlers</span> for legal process monitoring across Brazilian courts.</li>
-            <li>Managed the most critical partner integration, centralizing <span class="hl">40% of all active crawlers</span> as a resilience backup solution.</li>
-            <li>Technical reference for the DataCloud team, supporting the Tech Lead on process improvements and software quality.</li>
+            <li data-i18n="exp.tr.b1">Developed and maintained <span class="hl">100+ web crawlers</span> for legal process monitoring across Brazilian courts.</li>
+            <li data-i18n="exp.tr.b2">Managed the most critical partner integration, centralizing <span class="hl">40% of all active crawlers</span> as a resilience backup solution.</li>
+            <li data-i18n="exp.tr.b3">Technical reference for the DataCloud team, supporting the Tech Lead on process improvements and software quality.</li>
           </ul>
         </div>
       </div>
@@ -856,39 +878,39 @@
   <div class="wrap">
     <div class="sec-hdr fi">
       <span class="sec-n">03</span>
-      <h2>Impact Project</h2>
+      <h2 data-i18n="impact.heading">Impact Project</h2>
     </div>
     <div class="impact-card fi">
       <div class="impact-tags">
-        <span class="itag itag-green">Founder &amp; Developer</span>
-        <a href="https://globoplay.globo.com/v/14400096/" target="_blank" class="itag itag-amber" style="cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">National TV Coverage &rarr;</a>
-        <span class="itag-dim">February 2026</span>
+        <span class="itag itag-green" data-i18n="impact.tag.founder">Founder &amp; Developer</span>
+        <a href="https://globoplay.globo.com/v/14400096/" target="_blank" class="itag itag-amber" data-i18n="impact.tag.tv" style="cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">National TV Coverage &rarr;</a>
+        <span class="itag-dim" data-i18n="impact.tag.date">February 2026</span>
       </div>
       <h3 class="impact-title"><a href="https://ajude.io" target="_blank" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">Ajude.io</a></h3>
-      <p class="impact-desc">
+      <p class="impact-desc" data-i18n="impact.desc">
         A real-time disaster response platform built during the February 2026 climate crisis in Juiz de Fora — connecting volunteers, coordinating relief fronts, and scaling under the most demanding conditions imaginable.
       </p>
       <ul class="impact-bullets">
-        <li>Connected <strong>1,000+ volunteers</strong> to active relief fronts across the city in real time</li>
-        <li>Built the full application and backoffice <strong>solo under crisis conditions</strong>, scaling to support hundreds of families</li>
-        <li>Donations, street cleanup coordination, and emergency guidance — all through the platform</li>
-        <li>Coordinated a team of <strong>~20 people on the ground</strong> across distribution centers and active fronts</li>
-        <li class="gold"><strong class="gold">Featured on TV news broadcasts — national media coverage</strong></li>
+        <li data-i18n="impact.b1">Connected <strong>1,000+ volunteers</strong> to active relief fronts across the city in real time</li>
+        <li data-i18n="impact.b2">Built the full application and backoffice <strong>solo under crisis conditions</strong>, scaling to support hundreds of families</li>
+        <li data-i18n="impact.b3">Donations, street cleanup coordination, and emergency guidance — all through the platform</li>
+        <li data-i18n="impact.b4">Coordinated a team of <strong>~20 people on the ground</strong> across distribution centers and active fronts</li>
+        <li class="gold" data-i18n="impact.b5"><strong class="gold">Featured on TV news broadcasts — national media coverage</strong></li>
       </ul>
       <div class="impact-stats-row">
         <div class="is-cell">
           <div class="is-val">1k+</div>
-          <div class="is-label">Volunteers connected</div>
+          <div class="is-label" data-i18n="impact.stat.volunteers">Volunteers connected</div>
         </div>
         <div class="is-cell">
           <div class="is-val">~20</div>
-          <div class="is-label">People coordinated on the ground</div>
+          <div class="is-label" data-i18n="impact.stat.people">People coordinated on the ground</div>
         </div>
         <div class="is-cell">
           <a href="https://globoplay.globo.com/v/14400096/" target="_blank" style="text-decoration:none;">
             <div class="is-val gold" style="transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">TV &rarr;</div>
           </a>
-          <div class="is-label">National media coverage — watch on Globoplay</div>
+          <div class="is-label" data-i18n="impact.stat.media">National media coverage — watch on Globoplay</div>
         </div>
       </div>
     </div>
@@ -900,11 +922,11 @@
   <div class="wrap">
     <div class="sec-hdr fi">
       <span class="sec-n">04</span>
-      <h2>Skills</h2>
+      <h2 data-i18n="skills.heading">Skills</h2>
     </div>
     <div class="skills-list">
       <div class="fi">
-        <div class="sk-cat-name">Cloud &amp; Infrastructure</div>
+        <div class="sk-cat-name" data-i18n="skills.cat.cloud">Cloud &amp; Infrastructure</div>
         <div class="sk-tags">
           <span class="sk-tag p">AWS Lambda</span>
           <span class="sk-tag p">AWS Bedrock</span>
@@ -924,7 +946,7 @@
         </div>
       </div>
       <div class="fi">
-        <div class="sk-cat-name">Languages</div>
+        <div class="sk-cat-name" data-i18n="skills.cat.languages">Languages</div>
         <div class="sk-tags">
           <span class="sk-tag p">C# / .NET</span>
           <span class="sk-tag p">Python</span>
@@ -935,7 +957,7 @@
         </div>
       </div>
       <div class="fi">
-        <div class="sk-cat-name">AI / ML</div>
+        <div class="sk-cat-name" data-i18n="skills.cat.ai">AI / ML</div>
         <div class="sk-tags">
           <span class="sk-tag p">Agentic AI Systems</span>
           <span class="sk-tag p">LLMs (Claude, Copilot)</span>
@@ -946,7 +968,7 @@
         </div>
       </div>
       <div class="fi">
-        <div class="sk-cat-name">Data</div>
+        <div class="sk-cat-name" data-i18n="skills.cat.data">Data</div>
         <div class="sk-tags">
           <span class="sk-tag">PostgreSQL</span>
           <span class="sk-tag">SQL Server</span>
@@ -958,7 +980,7 @@
         </div>
       </div>
       <div class="fi">
-        <div class="sk-cat-name">Architecture &amp; Patterns</div>
+        <div class="sk-cat-name" data-i18n="skills.cat.arch">Architecture &amp; Patterns</div>
         <div class="sk-tags">
           <span class="sk-tag p">Microservices</span>
           <span class="sk-tag p">Event-driven</span>
@@ -969,7 +991,7 @@
         </div>
       </div>
       <div class="fi">
-        <div class="sk-cat-name">Frontend</div>
+        <div class="sk-cat-name" data-i18n="skills.cat.frontend">Frontend</div>
         <div class="sk-tags">
           <span class="sk-tag">React</span>
           <span class="sk-tag">Next.js</span>
@@ -985,43 +1007,43 @@
   <div class="wrap">
     <div class="sec-hdr fi">
       <span class="sec-n">05</span>
-      <h2>Recent Work
-        <br><span style="font-size:1rem;font-weight:400;color:var(--muted);">Last 12 months across 19 repositories</span>
+      <h2><span data-i18n="brag.heading">Recent Work</span>
+        <br><span style="font-size:1rem;font-weight:400;color:var(--muted);" data-i18n="brag.heading.sub">Last 12 months across 19 repositories</span>
       </h2>
     </div>
     <div class="brag-grid">
       <div class="brag-cell fi d1">
         <div class="brag-num"><span class="ctr" data-t="19">0</span></div>
-        <div class="brag-desc">active repositories touched</div>
+        <div class="brag-desc" data-i18n="brag.desc.1">active repositories touched</div>
       </div>
       <div class="brag-cell fi d2">
         <div class="brag-num"><span class="ctr" data-t="105" data-s="+">0</span></div>
-        <div class="brag-desc">pull requests delivered</div>
+        <div class="brag-desc" data-i18n="brag.desc.2">pull requests delivered</div>
       </div>
       <div class="brag-cell fi d3">
         <div class="brag-num"><span class="ctr" data-t="118" data-s="k">0k</span></div>
-        <div class="brag-desc">lines of code changed</div>
+        <div class="brag-desc" data-i18n="brag.desc.3">lines of code changed</div>
       </div>
       <div class="brag-cell fi d4">
         <div class="brag-num"><span class="ctr" data-t="3">0</span></div>
-        <div class="brag-desc">AI products built end-to-end from scratch</div>
+        <div class="brag-desc" data-i18n="brag.desc.4">AI products built end-to-end from scratch</div>
       </div>
       <div class="brag-cell fi d5">
         <div class="brag-num"><span class="ctr" data-t="4" data-s="+">0</span></div>
-        <div class="brag-desc">critical production incidents resolved</div>
+        <div class="brag-desc" data-i18n="brag.desc.5">critical production incidents resolved</div>
       </div>
       <div class="brag-cell fi d6">
         <div class="brag-num"><span class="ctr" data-t="21">0</span></div>
-        <div class="brag-desc">technical proposals authored for clients</div>
+        <div class="brag-desc" data-i18n="brag.desc.6">technical proposals authored for clients</div>
       </div>
     </div>
     <div class="at-card fi">
       <div class="at-card-bg"></div>
       <div class="at-card-inner">
         <div class="at-left">
-          <div class="at-eyebrow">Tech Consultancy</div>
+          <div class="at-eyebrow" data-i18n="at.eyebrow">Tech Consultancy</div>
           <h3 class="at-title">Arruda<span class="at-dot">.Tech</span></h3>
-          <p class="at-desc">A proprietary platform to scope, price and deliver custom software for clients across health, fintech, real estate, logistics and more — from a first meeting to a signed proposal, in one place.</p>
+          <p class="at-desc" data-i18n="at.desc">A proprietary platform to scope, price and deliver custom software for clients across health, fintech, real estate, logistics and more — from a first meeting to a signed proposal, in one place.</p>
           <div class="at-tags">
             <span class="at-tag">Health</span>
             <span class="at-tag">Fintech</span>
@@ -1036,14 +1058,14 @@
           <div class="at-stat-row">
             <div class="at-stat">
               <div class="at-stat-num">21</div>
-              <div class="at-stat-lbl">proposals delivered</div>
+              <div class="at-stat-lbl" data-i18n="at.stat.proposals">proposals delivered</div>
             </div>
             <div class="at-stat">
               <div class="at-stat-num">7+</div>
-              <div class="at-stat-lbl">verticals served</div>
+              <div class="at-stat-lbl" data-i18n="at.stat.verticals">verticals served</div>
             </div>
           </div>
-          <a href="http://arrudatech.com/" target="_blank" class="at-cta">Visit Arruda.Tech &rarr;</a>
+          <a href="http://arrudatech.com/" target="_blank" class="at-cta" data-i18n="at.cta">Visit Arruda.Tech &rarr;</a>
         </div>
       </div>
     </div>
@@ -1055,34 +1077,34 @@
   <div class="wrap">
     <div class="sec-hdr fi">
       <span class="sec-n">06</span>
-      <h2>Education</h2>
+      <h2 data-i18n="edu.heading">Education</h2>
     </div>
     <div class="edu-list">
       <div class="edu-item fi">
         <div class="edu-yr">2025</div>
         <div>
-          <div class="edu-deg">Executive MBA — Management: People &amp; Leadership</div>
+          <div class="edu-deg" data-i18n="edu.deg.1">Executive MBA — Management: People &amp; Leadership</div>
           <div class="edu-sch">FGV — Fundação Getúlio Vargas, Juiz de Fora</div>
         </div>
       </div>
       <div class="edu-item fi">
         <div class="edu-yr">2022</div>
         <div>
-          <div class="edu-deg">MBA — Software Architecture</div>
+          <div class="edu-deg" data-i18n="edu.deg.2">MBA — Software Architecture</div>
           <div class="edu-sch">XP Education, São Paulo</div>
         </div>
       </div>
       <div class="edu-item fi">
         <div class="edu-yr">2020</div>
         <div>
-          <div class="edu-deg">Bachelor of Computer Information Systems</div>
+          <div class="edu-deg" data-i18n="edu.deg.3">Bachelor of Computer Information Systems</div>
           <div class="edu-sch">Federal Institute of Education, Science and Technology — Juiz de Fora</div>
         </div>
       </div>
       <div class="edu-item fi">
         <div class="edu-yr">2019</div>
         <div>
-          <div class="edu-deg">Student Mobility Program</div>
+          <div class="edu-deg" data-i18n="edu.deg.4">Student Mobility Program</div>
           <div class="edu-sch">Polytechnic of Guarda — Guarda, Portugal</div>
         </div>
       </div>
@@ -1093,8 +1115,8 @@
 <!-- ── CONTACT ───────────────────────────────── -->
 <section id="contact">
   <div class="contact-inner fi">
-    <h2>Let's work together</h2>
-    <p>Whether it's a senior engineering role, a tech lead position, or a complex systems challenge — I'm open to conversations.</p>
+    <h2 data-i18n="contact.heading">Let's work together</h2>
+    <p data-i18n="contact.desc">Whether it's a senior engineering role, a tech lead position, or a complex systems challenge — I'm open to conversations.</p>
     <div class="contact-btns">
       <a href="mailto:filipejesse5@gmail.com" class="btn-solid">filipejesse5@gmail.com</a>
       <a href="https://www.linkedin.com/in/filipe-jesse" target="_blank" class="btn-ghost">LinkedIn</a>
@@ -1154,6 +1176,232 @@
       ? 'rgba(255,255,255,0.09)'
       : 'rgba(255,255,255,0.07)';
   }, { passive: true });
+
+  // ─── i18n ──────────────────────────────────────────────────────────────────
+  const translations = {
+    en: {
+      'nav.about': 'About',
+      'nav.work': 'Work',
+      'nav.impact': 'Impact',
+      'nav.skills': 'Skills',
+      'nav.education': 'Education',
+      'nav.contact': 'Contact',
+      'nav.cta': 'Get in touch',
+      'hero.badge': 'Senior Engineer &amp; Tech Lead — Open to opportunities',
+      'hero.sub': 'I build systems that move money, model intelligence,<br>and scale under pressure — from zero to production.',
+      'hero.email': 'Email me',
+      'hero.scroll': 'Scroll',
+      'stats.eyebrow': 'Career impact — measured',
+      'stats.desc.1': 'in custody from a single batch migration',
+      'stats.desc.2': 'throughput — scaled from 16 req/s',
+      'stats.desc.3': 'operational cost reduction',
+      'stats.desc.4': 'processing efficiency via AI workflows',
+      'stats.desc.5': 'volunteers connected during disaster crisis',
+      'stats.desc.6': 'ops hours saved across two KYC modules',
+      'about.heading': 'About',
+      'about.p1': 'Senior Software Engineer and Tech Lead with <strong>6+ years</strong> building mission-critical systems across fintech, banking, and AI-driven products. I specialize in <strong>high-volume payment architectures</strong>, agentic AI pipelines, and cloud-native backends on AWS and Azure.',
+      'about.p2': 'I\'ve led teams at <strong>BTG Pactual</strong> — Brazil\'s largest investment bank — at <strong>Transfero</strong> — a fintech operating at scale — and currently at <strong>Acxia Cloud</strong>, where I architect and deliver agentic AI systems end-to-end.',
+      'about.p3': 'In February 2026, during the climate crisis in Juiz de Fora, I built <strong>Ajude.io</strong> — a real-time disaster response platform that connected over 1,000 volunteers to active relief fronts. The platform gained national TV coverage.',
+      'about.p4': 'I hold an <strong>Executive MBA from FGV</strong> in People &amp; Leadership and an <strong>MBA in Software Architecture</strong> from XP Education.',
+      'about.meta.location': 'Location',
+      'about.meta.languages': 'Languages',
+      'about.meta.experience': 'Experience',
+      'about.meta.focus': 'Focus',
+      'exp.heading': 'Experience',
+      'exp.acxia.badge': 'Current',
+      'exp.acxia.role': 'AI &amp; ML Engineer<br>Tech Lead',
+      'exp.acxia.b1': 'Built <span class="hl">3 end-to-end agentic AI systems from scratch</span>: medical document analysis with OCR and scoring, AI email automation pipeline with analytics dashboard, and an intelligent voice gateway.',
+      'exp.acxia.b2': 'Standardized CI/CD via GitHub Actions across multiple repos — secret management, infrastructure bootstrap, smoke tests.',
+      'exp.acxia.b3': 'Refactored voice AI gateway with a multi-layer test suite, intent journey tracking, and silence timeout — transforming untested code into a fully observable system.',
+      'exp.acxia.b4': 'Eliminated a critical bottleneck by <span class="hl">replacing synchronous polling with async callbacks</span> in Amazon Connect integration.',
+      'exp.acxia.b5': 'Formal code reviews and technical mentorship driving collective quality standards.',
+      'exp.transfero.role': 'Senior Software Engineer<br>Tech Lead',
+      'exp.transfero.b1': 'Led core payments team processing <span class="hl">thousands of transactions daily</span> — eliminated recurring weekly outages, achieving zero incidents.',
+      'exp.transfero.b2': 'Architected a new payment system from the ground up: <span class="hl">16 → 150 req/s throughput, 90% cost reduction</span> through in-house money processing.',
+      'exp.transfero.b3': 'Championed AI-driven engineering (GitHub Copilot, LLMs), contributing to an <span class="hl">8× increase in processing efficiency</span>.',
+      'exp.transfero.b4': 'High-ownership role in ambiguity-heavy fintech environment — drove complex systems from concept to production with speed and autonomy.',
+      'exp.btg.role': 'Senior Software Engineer<br>Tech Lead',
+      'exp.btg.b1': 'Delivered BTG\'s <span class="hl">international account opening platform</span> (primary OKR) in under 6 months, leading a team of 10 engineers.',
+      'exp.btg.b2': 'Batch payroll migration module → <span class="hl">USD 1 billion+ in custody</span>.',
+      'exp.btg.b3': 'KYC compliance module: <span class="hl">265 hrs/month saved (~$1,968/mo)</span> in operational costs.',
+      'exp.btg.b4': 'Hierarchical relations module: <span class="hl">645 hrs/month saved (~$6,093/mo)</span>.',
+      'exp.btg.b5': 'Enabled co-branded cards + crypto broker accounts: <span class="hl">~$978K assets, ~$99K revenue in month 1</span>.',
+      'exp.tr.role': 'Software Engineer<br><span style="font-size:0.875rem; color:var(--muted); font-weight:400;">(+ Intern 2019–2020)</span>',
+      'exp.tr.b1': 'Developed and maintained <span class="hl">100+ web crawlers</span> for legal process monitoring across Brazilian courts.',
+      'exp.tr.b2': 'Managed the most critical partner integration, centralizing <span class="hl">40% of all active crawlers</span> as a resilience backup solution.',
+      'exp.tr.b3': 'Technical reference for the DataCloud team, supporting the Tech Lead on process improvements and software quality.',
+      'impact.heading': 'Impact Project',
+      'impact.tag.founder': 'Founder &amp; Developer',
+      'impact.tag.tv': 'National TV Coverage &rarr;',
+      'impact.tag.date': 'February 2026',
+      'impact.desc': 'A real-time disaster response platform built during the February 2026 climate crisis in Juiz de Fora — connecting volunteers, coordinating relief fronts, and scaling under the most demanding conditions imaginable.',
+      'impact.b1': 'Connected <strong>1,000+ volunteers</strong> to active relief fronts across the city in real time',
+      'impact.b2': 'Built the full application and backoffice <strong>solo under crisis conditions</strong>, scaling to support hundreds of families',
+      'impact.b3': 'Donations, street cleanup coordination, and emergency guidance — all through the platform',
+      'impact.b4': 'Coordinated a team of <strong>~20 people on the ground</strong> across distribution centers and active fronts',
+      'impact.b5': '<strong class="gold">Featured on TV news broadcasts — national media coverage</strong>',
+      'impact.stat.volunteers': 'Volunteers connected',
+      'impact.stat.people': 'People coordinated on the ground',
+      'impact.stat.media': 'National media coverage — watch on Globoplay',
+      'skills.heading': 'Skills',
+      'skills.cat.cloud': 'Cloud &amp; Infrastructure',
+      'skills.cat.languages': 'Languages',
+      'skills.cat.ai': 'AI / ML',
+      'skills.cat.data': 'Data',
+      'skills.cat.arch': 'Architecture &amp; Patterns',
+      'skills.cat.frontend': 'Frontend',
+      'brag.heading': 'Recent Work',
+      'brag.heading.sub': 'Last 12 months across 19 repositories',
+      'brag.desc.1': 'active repositories touched',
+      'brag.desc.2': 'pull requests delivered',
+      'brag.desc.3': 'lines of code changed',
+      'brag.desc.4': 'AI products built end-to-end from scratch',
+      'brag.desc.5': 'critical production incidents resolved',
+      'brag.desc.6': 'technical proposals authored for clients',
+      'at.eyebrow': 'Tech Consultancy',
+      'at.desc': 'A proprietary platform to scope, price and deliver custom software for clients across health, fintech, real estate, logistics and more — from a first meeting to a signed proposal, in one place.',
+      'at.stat.proposals': 'proposals delivered',
+      'at.stat.verticals': 'verticals served',
+      'at.cta': 'Visit Arruda.Tech &rarr;',
+      'edu.heading': 'Education',
+      'edu.deg.1': 'Executive MBA — Management: People &amp; Leadership',
+      'edu.deg.2': 'MBA — Software Architecture',
+      'edu.deg.3': 'Bachelor of Computer Information Systems',
+      'edu.deg.4': 'Student Mobility Program',
+      'contact.heading': 'Let\'s work together',
+      'contact.desc': 'Whether it\'s a senior engineering role, a tech lead position, or a complex systems challenge — I\'m open to conversations.',
+    },
+    'pt-br': {
+      'nav.about': 'Sobre',
+      'nav.work': 'Experiência',
+      'nav.impact': 'Impacto',
+      'nav.skills': 'Habilidades',
+      'nav.education': 'Formação',
+      'nav.contact': 'Contato',
+      'nav.cta': 'Entre em contato',
+      'hero.badge': 'Engenheiro Sênior &amp; Tech Lead — Aberto a oportunidades',
+      'hero.sub': 'Construo sistemas que movem dinheiro, modelam inteligência<br>e escalam sob pressão — do zero à produção.',
+      'hero.email': 'Me envie um email',
+      'hero.scroll': 'Rolar',
+      'stats.eyebrow': 'Impacto na carreira — medido',
+      'stats.desc.1': 'em custódia por uma única migração em lote',
+      'stats.desc.2': 'throughput — escalado de 16 req/s',
+      'stats.desc.3': 'redução de custo operacional',
+      'stats.desc.4': 'eficiência de processamento via fluxos de IA',
+      'stats.desc.5': 'voluntários conectados durante a crise climática',
+      'stats.desc.6': 'horas de ops salvas em dois módulos KYC',
+      'about.heading': 'Sobre',
+      'about.p1': 'Engenheiro de Software Sênior e Tech Lead com <strong>6+ anos</strong> construindo sistemas críticos em fintech, banking e produtos orientados a IA. Especializado em <strong>arquiteturas de pagamentos de alto volume</strong>, pipelines de IA agêntica e backends cloud-native na AWS e Azure.',
+      'about.p2': 'Liderei times no <strong>BTG Pactual</strong> — o maior banco de investimentos do Brasil — na <strong>Transfero</strong> — uma fintech operando em escala — e atualmente na <strong>Acxia Cloud</strong>, onde projeto e entrego sistemas de IA agêntica de ponta a ponta.',
+      'about.p3': 'Em fevereiro de 2026, durante a crise climática em Juiz de Fora, construí o <strong>Ajude.io</strong> — uma plataforma de resposta a desastres em tempo real que conectou mais de 1.000 voluntários a frentes de ajuda ativas. A plataforma ganhou cobertura na TV nacional.',
+      'about.p4': 'Tenho <strong>MBA Executivo pela FGV</strong> em Gestão de Pessoas &amp; Liderança e um <strong>MBA em Arquitetura de Software</strong> pela XP Educação.',
+      'about.meta.location': 'Localização',
+      'about.meta.languages': 'Idiomas',
+      'about.meta.experience': 'Experiência',
+      'about.meta.focus': 'Foco',
+      'exp.heading': 'Experiência',
+      'exp.acxia.badge': 'Atual',
+      'exp.acxia.role': 'Engenheiro de IA &amp; ML<br>Tech Lead',
+      'exp.acxia.b1': 'Construí <span class="hl">3 sistemas de IA agêntica de ponta a ponta do zero</span>: análise de documentos médicos com OCR e pontuação, pipeline de automação de e-mail com IA e dashboard de analytics, e um gateway de voz inteligente.',
+      'exp.acxia.b2': 'Padronizei CI/CD via GitHub Actions em múltiplos repositórios — gerenciamento de secrets, bootstrap de infraestrutura, smoke tests.',
+      'exp.acxia.b3': 'Refatorei o gateway de voz com IA com um conjunto de testes multicamada, rastreamento de jornada de intenção e timeout de silêncio — transformando código não testado em um sistema totalmente observável.',
+      'exp.acxia.b4': 'Eliminei um gargalo crítico ao <span class="hl">substituir polling síncrono por callbacks assíncronos</span> na integração com o Amazon Connect.',
+      'exp.acxia.b5': 'Code reviews formais e mentoria técnica elevando os padrões de qualidade coletiva.',
+      'exp.transfero.role': 'Engenheiro de Software Sênior<br>Tech Lead',
+      'exp.transfero.b1': 'Liderou o time de pagamentos core processando <span class="hl">milhares de transações diariamente</span> — eliminou indisponibilidades semanais recorrentes, atingindo zero incidentes.',
+      'exp.transfero.b2': 'Arquitetou um novo sistema de pagamentos do zero: <span class="hl">throughput de 16 → 150 req/s, redução de 90% nos custos</span> com processamento interno de dinheiro.',
+      'exp.transfero.b3': 'Liderou a engenharia orientada a IA (GitHub Copilot, LLMs), contribuindo para um <span class="hl">aumento de 8× na eficiência de processamento</span>.',
+      'exp.transfero.b4': 'Função de alta responsabilidade em ambiente fintech com alta ambiguidade — levou sistemas complexos do conceito à produção com velocidade e autonomia.',
+      'exp.btg.role': 'Engenheiro de Software Sênior<br>Tech Lead',
+      'exp.btg.b1': 'Entregou a <span class="hl">plataforma de abertura de conta internacional do BTG</span> (OKR principal) em menos de 6 meses, liderando um time de 10 engenheiros.',
+      'exp.btg.b2': 'Módulo de migração de folha de pagamento em lote → <span class="hl">USD 1 bilhão+ em custódia</span>.',
+      'exp.btg.b3': 'Módulo de compliance KYC: <span class="hl">265 hrs/mês economizadas (~$1.968/mês)</span> em custos operacionais.',
+      'exp.btg.b4': 'Módulo de relações hierárquicas: <span class="hl">645 hrs/mês economizadas (~$6.093/mês)</span>.',
+      'exp.btg.b5': 'Habilitou cartões co-branded + contas de corretora de cripto: <span class="hl">~$978K em ativos, ~$99K de receita no primeiro mês</span>.',
+      'exp.tr.role': 'Engenheiro de Software<br><span style="font-size:0.875rem; color:var(--muted); font-weight:400;">(+ Estagiário 2019–2020)</span>',
+      'exp.tr.b1': 'Desenvolveu e manteve <span class="hl">100+ web crawlers</span> para monitoramento de processos jurídicos em tribunais brasileiros.',
+      'exp.tr.b2': 'Gerenciou a integração com parceiro mais crítica, centralizando <span class="hl">40% de todos os crawlers ativos</span> como solução de backup de resiliência.',
+      'exp.tr.b3': 'Referência técnica do time DataCloud, apoiando o Tech Lead em melhorias de processos e qualidade de software.',
+      'impact.heading': 'Projeto de Impacto',
+      'impact.tag.founder': 'Fundador &amp; Desenvolvedor',
+      'impact.tag.tv': 'Cobertura Nacional na TV &rarr;',
+      'impact.tag.date': 'Fevereiro de 2026',
+      'impact.desc': 'Uma plataforma de resposta a desastres em tempo real construída durante a crise climática de fevereiro de 2026 em Juiz de Fora — conectando voluntários, coordenando frentes de ajuda e escalando nas condições mais exigentes imagináveis.',
+      'impact.b1': 'Conectou <strong>1.000+ voluntários</strong> a frentes de ajuda ativas em toda a cidade em tempo real',
+      'impact.b2': 'Construiu a aplicação completa e o backoffice <strong>solo em condições de crise</strong>, escalando para atender centenas de famílias',
+      'impact.b3': 'Doações, coordenação de limpeza de ruas e orientação de emergência — tudo pela plataforma',
+      'impact.b4': 'Coordenou um time de <strong>~20 pessoas no campo</strong> entre centros de distribuição e frentes ativas',
+      'impact.b5': '<strong class="gold">Destaque em telejornais — cobertura midiática nacional</strong>',
+      'impact.stat.volunteers': 'Voluntários conectados',
+      'impact.stat.people': 'Pessoas coordenadas no campo',
+      'impact.stat.media': 'Cobertura midiática nacional — assista no Globoplay',
+      'skills.heading': 'Habilidades',
+      'skills.cat.cloud': 'Cloud &amp; Infraestrutura',
+      'skills.cat.languages': 'Linguagens',
+      'skills.cat.ai': 'IA / ML',
+      'skills.cat.data': 'Dados',
+      'skills.cat.arch': 'Arquitetura &amp; Padrões',
+      'skills.cat.frontend': 'Frontend',
+      'brag.heading': 'Trabalho Recente',
+      'brag.heading.sub': 'Últimos 12 meses em 19 repositórios',
+      'brag.desc.1': 'repositórios ativos tocados',
+      'brag.desc.2': 'pull requests entregues',
+      'brag.desc.3': 'linhas de código alteradas',
+      'brag.desc.4': 'produtos de IA construídos do zero ao produto final',
+      'brag.desc.5': 'incidentes críticos de produção resolvidos',
+      'brag.desc.6': 'propostas técnicas elaboradas para clientes',
+      'at.eyebrow': 'Consultoria Tecnológica',
+      'at.desc': 'Uma plataforma própria para definir escopo, precificar e entregar software personalizado para clientes nas áreas de saúde, fintech, imóveis, logística e mais — da primeira reunião à proposta assinada, em um só lugar.',
+      'at.stat.proposals': 'propostas entregues',
+      'at.stat.verticals': 'verticais atendidas',
+      'at.cta': 'Visitar Arruda.Tech &rarr;',
+      'edu.heading': 'Formação',
+      'edu.deg.1': 'MBA Executivo — Gestão: Pessoas &amp; Liderança',
+      'edu.deg.2': 'MBA — Arquitetura de Software',
+      'edu.deg.3': 'Bacharelado em Sistemas de Informação',
+      'edu.deg.4': 'Programa de Mobilidade Estudantil',
+      'contact.heading': 'Vamos trabalhar juntos',
+      'contact.desc': 'Seja para uma vaga de engenharia sênior, uma posição de tech lead ou um desafio complexo de sistemas — estou aberto a conversas.',
+    }
+  };
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang === 'pt-br' ? 'pt-BR' : 'en';
+    const t = translations[lang] || translations['en'];
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.dataset.i18n;
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    var btn = document.getElementById('langToggle');
+    if (btn) {
+      btn.classList.toggle('active-en', lang === 'en');
+      btn.classList.toggle('active-pt', lang === 'pt-br');
+    }
+    try { localStorage.setItem('lang', lang); } catch(e) {}
+  }
+
+  // Init: check URL param, then localStorage, default to 'en'
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var urlLang = params.get('lang');
+    var lang = 'en';
+    if (urlLang === 'pt-br') {
+      lang = 'pt-br';
+    } else {
+      try { var stored = localStorage.getItem('lang'); if (stored === 'pt-br') lang = 'pt-br'; } catch(e) {}
+    }
+    applyLang(lang);
+  })();
+
+  document.getElementById('langToggle').addEventListener('click', function() {
+    var current = document.documentElement.lang === 'pt-BR' ? 'pt-br' : 'en';
+    var next = current === 'en' ? 'pt-br' : 'en';
+    var url = new URL(window.location.href);
+    if (next === 'pt-br') url.searchParams.set('lang', 'pt-br');
+    else url.searchParams.delete('lang');
+    history.replaceState({}, '', url.toString());
+    applyLang(next);
+  });
 </script>
 </body>
 </html>
